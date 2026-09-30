@@ -1,9 +1,8 @@
 import './CameraPreview.css';
-import { Camera } from '../camera/Camera';
+import { Camera } from '../camera/camera';
 import { useRef, useEffect, useState } from 'react';
-import { HandTracker } from '../tracking/HandTracker';
-import type { HandLandmarkerResult } from '@mediapipe/tasks-vision';
-import { drawFrame } from '../helper/DrawHands';
+import { HandTracker } from '../tracking/handTracker';
+import { drawFrame } from '../helper/drawHands';
 
 export function CameraPreview() {
     const cameraRef = useRef<HTMLVideoElement>(null);

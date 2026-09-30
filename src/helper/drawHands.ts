@@ -7,13 +7,13 @@ export function drawFrame(canvas: HTMLCanvasElement, result: HandLandmarkerResul
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    result.landmarks.forEach(hand => {
-        const rootX = hand[0].x * canvas.width;
-        const rootY = hand[0].y * canvas.height;
+    result.landmarks.forEach((fingers) => {
+        const rootX = fingers[0].x * canvas.width;
+        const rootY = fingers[0].y * canvas.height;
 
         ctx.beginPath();
 
-        hand.forEach((point, index) => {
+        fingers.forEach((point, index) => {
             const x = point.x * canvas.width;
             const y = point.y * canvas.height;
 
@@ -30,7 +30,7 @@ export function drawFrame(canvas: HTMLCanvasElement, result: HandLandmarkerResul
 
         ctx.beginPath();
 
-        hand.forEach((point) => {
+        fingers.forEach((point) => {
             const x = point.x * canvas.width;
             const y = point.y * canvas.height;
 

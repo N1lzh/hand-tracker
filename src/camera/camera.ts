@@ -1,21 +1,21 @@
 export class Camera {
-    private _stream: MediaStream | null = null;
+    private mediaStream: MediaStream | null = null;
 
     get stream() {
-        return this._stream
+        return this.mediaStream
     }
 
     async start() {
-        this._stream = await navigator.mediaDevices.getUserMedia({ video: true })
+        this.mediaStream = await navigator.mediaDevices.getUserMedia({ video: true })
     }
 
     stop() {
-        const tracks = this._stream?.getTracks() ?? []
+        const tracks = this.mediaStream?.getTracks() ?? []
         tracks.forEach(track => track.stop())
-        this._stream = null;
+        this.mediaStream = null;
     }
 
     isRunning(): boolean {
-        return this._stream?.active ?? false
+        return this.mediaStream?.active ?? false
     }
 }
